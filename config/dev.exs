@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :mini_homebroke, MiniHomebroke.Repo,
   username: "root",
-  password: "",
+  password: "15975301",
   hostname: "localhost",
   database: "mini_homebroke_dev",
   show_sensitive_data_on_connection_error: true,

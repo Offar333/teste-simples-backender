@@ -7,5 +7,8 @@ defmodule MiniHomebrokeWeb.Router do
 
   scope "/api", MiniHomebrokeWeb do
     pipe_through :api
+
+    resources "/ativos", AtivoController
+    resources "/ordens", OrdemController
   end
 end
