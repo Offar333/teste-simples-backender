@@ -18,8 +18,10 @@ defmodule MiniHomebroke.Ativos do
 
   """
   def list_ativos do
-    query = from a in "ativos",
-    select: %{codigo: a.codigo, preco: a.preco}
+    query =
+      from a in "ativos",
+        select: %{codigo: a.codigo, preco: a.preco}
+
     Repo.all(query)
   end
 
@@ -39,9 +41,10 @@ defmodule MiniHomebroke.Ativos do
   """
   def get_ativo!(id) do
     query =
-     from a in "ativos",
-    where: a.codigo == ^id,
-    select: %{codigo: a.codigo, preco: a.preco}
+      from a in "ativos",
+        where: a.codigo == ^id,
+        select: %{codigo: a.codigo, preco: a.preco}
+
     Repo.all(query)
   end
 
