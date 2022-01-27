@@ -26,12 +26,39 @@ defmodule MiniHomebroke.Ordens do
     query =
       from o in "ordens",
         where: o.codigo_ativo == ^codigo_ativo and o.tipo == 2,
-        select: type(sum(o.valor), :float)
+        select: type(sum(-o.valor), :float)
 
     saldo2 = Repo.all(query)
 
-    result = %{saldo: Enum.at(saldo1, 0) - Enum.at(saldo2, 0), operacoes: operacao}
-    result
+    case Enum.at(saldo1, 0) do
+
+      nil ->
+        case Enum.at(saldo2, 0) do
+
+          nil ->
+            result = %{saldo: 0, operacoes: operacao}
+            result
+
+          _->
+            result = %{saldo: Enum.at(saldo2, 0), operacoes: operacao}
+            result
+
+        end
+
+      _->
+        case Enum.at(saldo2, 0) do
+
+          nil ->
+            result = %{saldo: Enum.at(saldo1, 0), operacoes: operacao}
+            result
+
+          _->
+            result = %{saldo: Enum.at(saldo1, 0) + Enum.at(saldo2, 0), operacoes: operacao}
+            result
+
+        end
+    end
+
   end
 
   @doc """
