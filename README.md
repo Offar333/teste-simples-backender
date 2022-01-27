@@ -26,9 +26,10 @@
 ### Iniciando o servidor
 #### Com todo o ambiente preparado (Elixir + MySQL), faça:
   * 1. Clone o diretório
-  * 2. Na raiz do projeto, execute `mix deps.get` para instalar todas as dependências
-  * 3. Crie e migre o banco de dados com `mix ecto.setup` (na raiz do projeto)
-  * 4. Execute o comando `mix phx.server` para executar o servidor
+  * 2. Configura "username" e "password" do banco no arquivo mini_homebroker/config/dev.exs
+  * 3. Na raiz do projeto, execute `mix deps.get` para instalar todas as dependências
+  * 4. Crie e migre o banco de dados com `mix ecto.setup` (na raiz do projeto)
+  * 5. Execute o comando `mix phx.server` para executar o servidor
 
 Se tudo estiver corretamente configurado, o servidor estará pronto para uso.
 

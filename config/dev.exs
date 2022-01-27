@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :mini_homebroke, MiniHomebroke.Repo,
-  username: "root",
-  password: "15975301",
+  username: "", #usuario do banco
+  password: "", #senha do banco
   hostname: "localhost",
   database: "mini_homebroke_dev",
   show_sensitive_data_on_connection_error: true,
