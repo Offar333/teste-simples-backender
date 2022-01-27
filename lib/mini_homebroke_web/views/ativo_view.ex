@@ -12,7 +12,6 @@ defmodule MiniHomebrokeWeb.AtivoView do
 
   def render("ativo.json", %{ativo: ativo}) do
     %{
-      id: ativo.id,
       codigo: ativo.codigo,
       preco: ativo.preco
     }

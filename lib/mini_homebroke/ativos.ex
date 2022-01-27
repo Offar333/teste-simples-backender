@@ -18,7 +18,9 @@ defmodule MiniHomebroke.Ativos do
 
   """
   def list_ativos do
-    Repo.all(Ativo)
+    query = from a in "ativos",
+    select: %{codigo: a.codigo, preco: a.preco}
+    Repo.all(query)
   end
 
   @doc """
@@ -35,7 +37,13 @@ defmodule MiniHomebroke.Ativos do
       ** (Ecto.NoResultsError)
 
   """
-  def get_ativo!(id), do: Repo.get!(Ativo, id)
+  def get_ativo!(id) do
+    query =
+     from a in "ativos",
+    where: a.codigo == ^id,
+    select: %{codigo: a.codigo, preco: a.preco}
+    Repo.all(query)
+  end
 
   @doc """
   Creates a ativo.

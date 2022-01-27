@@ -22,7 +22,7 @@ defmodule MiniHomebrokeWeb.AtivoController do
 
   def show(conn, %{"id" => id}) do
     ativo = Ativos.get_ativo!(id)
-    render(conn, "show.json", ativo: ativo)
+    json(conn, ativo)
   end
 
   def update(conn, %{"id" => id, "ativo" => ativo_params}) do

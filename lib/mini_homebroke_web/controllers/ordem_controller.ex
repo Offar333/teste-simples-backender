@@ -25,6 +25,11 @@ defmodule MiniHomebrokeWeb.OrdemController do
     render(conn, "show.json", ordem: ordem)
   end
 
+  def show_ordens(conn, %{"codigo_ativo" => codigo_ativo}) do
+    ordem = Ordens.get_operacao!(codigo_ativo)
+    json(conn, ordem)
+  end
+
   def update(conn, %{"id" => id, "ordem" => ordem_params}) do
     ordem = Ordens.get_ordem!(id)
 

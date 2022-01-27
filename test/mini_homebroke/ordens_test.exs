@@ -36,7 +36,13 @@ defmodule MiniHomebroke.OrdensTest do
 
     test "update_ordem/2 with valid data updates the ordem" do
       ordem = ordem_fixture()
-      update_attrs = %{codigo_ativo: "some updated codigo_ativo", quantidade: 43, tipo: 43, valor: "456.7"}
+
+      update_attrs = %{
+        codigo_ativo: "some updated codigo_ativo",
+        quantidade: 43,
+        tipo: 43,
+        valor: "456.7"
+      }
 
       assert {:ok, %Ordem{} = ordem} = Ordens.update_ordem(ordem, update_attrs)
       assert ordem.codigo_ativo == "some updated codigo_ativo"

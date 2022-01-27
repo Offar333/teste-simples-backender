@@ -8,6 +8,15 @@ defmodule MiniHomebroke.Ordens do
 
   alias MiniHomebroke.Ordens.Ordem
 
+  def get_operacao!(codigo_ativo) do
+    query =
+      from o in "ordens",
+        where: o.codigo_ativo == ^codigo_ativo,
+        select: %{valor: o.valor, data: o.inserted_at, tipo: o.tipo}
+
+    Repo.all(query)
+  end
+
   @doc """
   Returns the list of ordens.
 
